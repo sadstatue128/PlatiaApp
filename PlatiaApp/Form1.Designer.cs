@@ -34,15 +34,15 @@
             this.pbMainPhoto = new System.Windows.Forms.PictureBox();
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.pnManage = new System.Windows.Forms.Panel();
+            this.LayoutBtns = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btClearAll = new System.Windows.Forms.Button();
+            this.btOpenFolder = new System.Windows.Forms.Button();
             this.btMainImage = new System.Windows.Forms.Button();
             this.tvClothesTree = new System.Windows.Forms.TreeView();
-            this.btOpenFolder = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btApply = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
-            this.LayoutBtns = new System.Windows.Forms.TableLayoutPanel();
-            this.btClearAll = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pnImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.Layout.SuspendLayout();
@@ -64,7 +64,6 @@
             // pbMainPhoto
             // 
             this.pbMainPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMainPhoto.Image = global::PlatiaApp.Properties.Resources.PICT0038;
             this.pbMainPhoto.Location = new System.Drawing.Point(0, 0);
             this.pbMainPhoto.Name = "pbMainPhoto";
             this.pbMainPhoto.Size = new System.Drawing.Size(506, 453);
@@ -96,50 +95,6 @@
             this.pnManage.Size = new System.Drawing.Size(283, 453);
             this.pnManage.TabIndex = 9;
             // 
-            // btMainImage
-            // 
-            this.btMainImage.Location = new System.Drawing.Point(184, 3);
-            this.btMainImage.Name = "btMainImage";
-            this.btMainImage.Size = new System.Drawing.Size(59, 34);
-            this.btMainImage.TabIndex = 10;
-            this.btMainImage.Text = "Фон";
-            this.btMainImage.UseVisualStyleBackColor = true;
-            // 
-            // tvClothesTree
-            // 
-            this.tvClothesTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvClothesTree.Location = new System.Drawing.Point(3, 50);
-            this.tvClothesTree.Name = "tvClothesTree";
-            this.tvClothesTree.Size = new System.Drawing.Size(272, 358);
-            this.tvClothesTree.TabIndex = 9;
-            // 
-            // btOpenFolder
-            // 
-            this.btOpenFolder.Location = new System.Drawing.Point(115, 3);
-            this.btOpenFolder.Name = "btOpenFolder";
-            this.btOpenFolder.Size = new System.Drawing.Size(63, 34);
-            this.btOpenFolder.TabIndex = 8;
-            this.btOpenFolder.Text = "Папка";
-            this.btOpenFolder.UseVisualStyleBackColor = true;
-            // 
-            // btApply
-            // 
-            this.btApply.Location = new System.Drawing.Point(44, 7);
-            this.btApply.Name = "btApply";
-            this.btApply.Size = new System.Drawing.Size(92, 23);
-            this.btApply.TabIndex = 11;
-            this.btApply.Text = "Применить";
-            this.btApply.UseVisualStyleBackColor = true;
-            // 
-            // btRemove
-            // 
-            this.btRemove.Location = new System.Drawing.Point(158, 7);
-            this.btRemove.Name = "btRemove";
-            this.btRemove.Size = new System.Drawing.Size(92, 23);
-            this.btRemove.TabIndex = 12;
-            this.btRemove.Text = "Очистить";
-            this.btRemove.UseVisualStyleBackColor = true;
-            // 
             // LayoutBtns
             // 
             this.LayoutBtns.ColumnCount = 1;
@@ -157,6 +112,17 @@
             this.LayoutBtns.Size = new System.Drawing.Size(283, 453);
             this.LayoutBtns.TabIndex = 13;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btClearAll);
+            this.panel1.Controls.Add(this.btOpenFolder);
+            this.panel1.Controls.Add(this.btMainImage);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(277, 41);
+            this.panel1.TabIndex = 0;
+            // 
             // btClearAll
             // 
             this.btClearAll.Location = new System.Drawing.Point(26, 3);
@@ -166,16 +132,32 @@
             this.btClearAll.Text = "Clear All";
             this.btClearAll.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // btOpenFolder
             // 
-            this.panel1.Controls.Add(this.btClearAll);
-            this.panel1.Controls.Add(this.btOpenFolder);
-            this.panel1.Controls.Add(this.btMainImage);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 41);
-            this.panel1.TabIndex = 0;
+            this.btOpenFolder.Location = new System.Drawing.Point(115, 3);
+            this.btOpenFolder.Name = "btOpenFolder";
+            this.btOpenFolder.Size = new System.Drawing.Size(63, 34);
+            this.btOpenFolder.TabIndex = 8;
+            this.btOpenFolder.Text = "Папка";
+            this.btOpenFolder.UseVisualStyleBackColor = true;
+            // 
+            // btMainImage
+            // 
+            this.btMainImage.Location = new System.Drawing.Point(184, 3);
+            this.btMainImage.Name = "btMainImage";
+            this.btMainImage.Size = new System.Drawing.Size(59, 34);
+            this.btMainImage.TabIndex = 10;
+            this.btMainImage.Text = "Фон";
+            this.btMainImage.UseVisualStyleBackColor = true;
+            // 
+            // tvClothesTree
+            // 
+            this.tvClothesTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvClothesTree.Location = new System.Drawing.Point(3, 50);
+            this.tvClothesTree.Name = "tvClothesTree";
+            this.tvClothesTree.Size = new System.Drawing.Size(277, 358);
+            this.tvClothesTree.TabIndex = 9;
+            this.tvClothesTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvClothesTree_NodeMouseClick);
             // 
             // panel2
             // 
@@ -184,8 +166,28 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 414);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 36);
+            this.panel2.Size = new System.Drawing.Size(277, 36);
             this.panel2.TabIndex = 10;
+            // 
+            // btApply
+            // 
+            this.btApply.Location = new System.Drawing.Point(44, 7);
+            this.btApply.Name = "btApply";
+            this.btApply.Size = new System.Drawing.Size(92, 23);
+            this.btApply.TabIndex = 11;
+            this.btApply.Text = "Применить";
+            this.btApply.UseVisualStyleBackColor = true;
+            this.btApply.Click += new System.EventHandler(this.btApply_Click);
+            // 
+            // btRemove
+            // 
+            this.btRemove.Location = new System.Drawing.Point(158, 7);
+            this.btRemove.Name = "btRemove";
+            this.btRemove.Size = new System.Drawing.Size(92, 23);
+            this.btRemove.TabIndex = 12;
+            this.btRemove.Text = "Очистить";
+            this.btRemove.UseVisualStyleBackColor = true;
+            this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
             // Form1
             // 
@@ -217,12 +219,12 @@
         private System.Windows.Forms.Button btMainImage;
         private System.Windows.Forms.TreeView tvClothesTree;
         private System.Windows.Forms.Button btOpenFolder;
-        private System.Windows.Forms.Button btRemove;
         private System.Windows.Forms.Button btApply;
         private System.Windows.Forms.TableLayoutPanel LayoutBtns;
         private System.Windows.Forms.Button btClearAll;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btRemove;
     }
 }
 

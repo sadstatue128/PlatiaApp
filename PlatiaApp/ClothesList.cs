@@ -37,12 +37,6 @@ namespace PlatiaApp
 
     class ShmotCategoryList : List<ShmotCategory>
     {
-        /*public void Add(string LName)
-        {
-            ShmotCategory sc = new ShmotCategory(LName);
-            sc.Name = LName;
-            Add(sc);
-        }*/
     }
 
     class ClothesList
@@ -72,9 +66,21 @@ namespace PlatiaApp
                 root.Nodes.Add(scNode);
                 foreach (Shmot sh in sc.list)
                 {
-                    scNode.Nodes.Add(sh.Name);
+                    TreeNode shNode = scNode.Nodes.Add(sh.Name);
+                    shNode.Tag = sh as Object;
                 }
             }
+        }
+
+        internal string GetImagePath(Object p)
+        {
+            string result = String.Empty;
+            if (p is Shmot)
+            {
+                Shmot sh = p as Shmot;
+                result = sh.PathPhoto;
+            }
+            return result;
         }
     }
 }
