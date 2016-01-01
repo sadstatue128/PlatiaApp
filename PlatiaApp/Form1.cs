@@ -12,10 +12,21 @@ namespace PlatiaApp
     public partial class Form1 : Form
     {
         ClothesList cl = new ClothesList();
+        ImgConcat imgC = new ImgConcat();
 
         public Form1()
         {
             InitializeComponent();
+            imgC.ImgChanged += new EventHandler(ImgChanged);
+        }
+
+        public void ImgChanged(object sender, EventArgs e)
+        {
+            pbMainPhoto.Image = imgC.MainImage;
+            pbMainPhoto.Invalidate();
+            btOpenFolder.Click += btOpenFolder_Click;
+            //btClearAll.Click += 
+            btMainImage.Click += btMainImage_Click;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +55,14 @@ namespace PlatiaApp
             {
                 cl.ReadFromFolder(mainFolderDlg.SelectedPath);
                 cl.FillTreeNodes(tvClothesTree.Nodes);
+            }
+        }
+
+        private void btMainImage_Click(object sender, EventArgs e)
+        {
+            if (openBG.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                imgC.MainImage = Bitmap.FromFile(openBG.FileName);
             }
         }
     }

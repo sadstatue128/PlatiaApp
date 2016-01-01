@@ -5,3 +5,4 @@ c:\users\администратор\documents\visual studio 2010\Projects\Platia
 c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.csproj.GenerateResource.Cache
 c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.exe
 c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.pdb
+C:\Users\Администратор\Documents\Visual Studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.csprojResolveAssemblyReference.cache

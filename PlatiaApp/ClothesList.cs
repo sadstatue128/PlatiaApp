@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -11,12 +10,12 @@ namespace PlatiaApp
     class Shmot
     {
         public string Name;
-        public Image Photo;
+        public string PathPhoto;
         public ShmotCategory category;
         public Shmot(string FilePath, ShmotCategory sc)
         {
+            PathPhoto = FilePath;
             Name = Path.GetFileName(FilePath);
-            //Photo = Bitmap.FromFile(FilePath);
             category = sc;
         }
 
