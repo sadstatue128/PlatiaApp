@@ -1,0 +1,7 @@
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\bin\Release\PlatiaApp.exe
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\bin\Release\PlatiaApp.pdb
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.Form1.resources
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.Properties.Resources.resources
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.csproj.GenerateResource.Cache
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.exe
+c:\users\администратор\documents\visual studio 2010\Projects\PlatiaApp\PlatiaApp\obj\x86\Release\PlatiaApp.pdb
