@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btApply = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.Layout.SuspendLayout();
@@ -50,10 +51,12 @@
             this.LayoutBtns.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnImg
             // 
+            this.pnImg.Controls.Add(this.pictureBox1);
             this.pnImg.Controls.Add(this.pbMainPhoto);
             this.pnImg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnImg.Location = new System.Drawing.Point(3, 3);
@@ -64,6 +67,7 @@
             // pbMainPhoto
             // 
             this.pbMainPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMainPhoto.Image = global::PlatiaApp.Properties.Resources.DSC00555;
             this.pbMainPhoto.Location = new System.Drawing.Point(0, 0);
             this.pbMainPhoto.Name = "pbMainPhoto";
             this.pbMainPhoto.Size = new System.Drawing.Size(506, 453);
@@ -73,6 +77,7 @@
             // 
             // Layout
             // 
+            this.Layout.AllowDrop = true;
             this.Layout.ColumnCount = 2;
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -85,6 +90,8 @@
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Layout.Size = new System.Drawing.Size(801, 459);
             this.Layout.TabIndex = 9;
+            this.Layout.DragDrop += new System.Windows.Forms.DragEventHandler(this.Layout_DragDrop);
+            this.Layout.DragEnter += new System.Windows.Forms.DragEventHandler(this.Layout_DragEnter);
             // 
             // pnManage
             // 
@@ -189,14 +196,25 @@
             this.btRemove.UseVisualStyleBackColor = true;
             this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(270, 252);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 459);
             this.Controls.Add(this.Layout);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.pnImg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.Layout.ResumeLayout(false);
@@ -204,6 +222,7 @@
             this.LayoutBtns.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +244,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btRemove;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

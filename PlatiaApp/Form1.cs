@@ -80,6 +80,48 @@ namespace PlatiaApp
 
         }
 
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            int x = this.PointToClient(new Point(e.X, e.Y)).X;
+
+            int y = this.PointToClient(new Point(e.X, e.Y)).Y;
+
+            if (x >= pictureBox1.Location.X && x <= pictureBox1.Location.X + pictureBox1.Width && y >= pictureBox1.Location.Y && y <= pictureBox1.Location.Y + pictureBox1.Height)
+            {
+
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                pictureBox1.Image = Image.FromFile(files[0]);
+
+            }
+        }
+
+        private void Layout_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void Layout_DragDrop(object sender, DragEventArgs e)
+        {
+            int x = this.PointToClient(new Point(e.X, e.Y)).X;
+
+            int y = this.PointToClient(new Point(e.X, e.Y)).Y;
+
+            if (x >= pictureBox1.Location.X && x <= pictureBox1.Location.X + pictureBox1.Width && y >= pictureBox1.Location.Y && y <= pictureBox1.Location.Y + pictureBox1.Height)
+            {
+
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                pictureBox1.Image = Image.FromFile(files[0]);
+
+            }
+        }
+
         
     }
 }
