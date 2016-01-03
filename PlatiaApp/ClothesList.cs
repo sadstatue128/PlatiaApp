@@ -20,6 +20,15 @@ namespace PlatiaApp
             category = sc;
         }
 
+        public void DeletePicBox()
+        {
+            if (picBox != null)
+            {
+                picBox.Free();
+                picBox = null;
+            }
+        }
+
     }
 
     class Shmots : List<Shmot>
@@ -97,6 +106,25 @@ namespace PlatiaApp
         internal void AppendImage(Control control)
         {
             CurShmot.picBox = new DraggingPicBox(CurShmot.PathPhoto, control);
+        }
+
+        internal void RemoveImage(PictureBox pbMainPhoto)
+        {
+            if (CurShmot.picBox != null)
+            {
+                CurShmot.DeletePicBox();
+            }
+        }
+
+        public void ClearAll()
+        {
+            foreach (ShmotCategory sc in CatList)
+            {
+                foreach (Shmot sh in sc.list)
+                {
+                    sh.DeletePicBox();
+                }
+            }
         }
     }
 }

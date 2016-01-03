@@ -13,25 +13,19 @@ namespace PlatiaApp
     public partial class mainForm : Form
     {
         ClothesList cl = new ClothesList();
-        ImgConcat imgC = new ImgConcat();
         String CurImgPath = String.Empty;
 
         public mainForm()
         {
             InitializeComponent();
-            imgC.ImgChanged += new EventHandler(ImgChanged);
             btOpenFolder.Click += btOpenFolder_Click;
             //btClearAll.Click += 
             btMainImage.Click += btMainImage_Click;
-            BtImgDisEnable(false);
+            BtImgDisEnable(false, btApply);
+            BtImgDisEnable(false, btRemove);
+            BtImgDisEnable(false, btMainImage);
         }
-
-        public void ImgChanged(object sender, EventArgs e)
-        {
-            pbMainPhoto.Image = imgC.MainImage;
-            pbMainPhoto.Invalidate();           
-        }
-        
+       
         private void btOpenFolder_Click(object sender, EventArgs e)
         {
             if (mainFolderDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -42,45 +36,65 @@ namespace PlatiaApp
             }
         }
 
+        Image CurBgImage = null;
         private void btMainImage_Click(object sender, EventArgs e)
         {
-            if (openBG.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                imgC.MainImage = Bitmap.FromFile(openBG.FileName);
-            }
+            CurBgImage = Bitmap.FromFile(CurImgPath);
+            pbMainPhoto.Image = CurBgImage;
         }
 
-        void BtImgDisEnable(Boolean En)
+        void BtImgDisEnable(Boolean En, Control ctrl)
         {
-            btApply.Enabled = En;
-            btRemove.Enabled = En;
+            ctrl.Enabled = En;
         }
 
         private void tvClothesTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             cl.SetCurShmot(e.Node.Tag);
             CurImgPath = cl.GetImagePath(e.Node.Tag);
-            if (Path.GetExtension(e.Node.Text) == ".png")
-                BtImgDisEnable(true);                
+            if (String.Compare(Path.GetExtension(e.Node.Text), ".png", true) == 0)
+            {
+                BtImgDisEnable(true, btApply);
+                BtImgDisEnable(true, btRemove);
+            }
             else
-                BtImgDisEnable(false);          
+            {
+                BtImgDisEnable(false, btApply);
+                BtImgDisEnable(false, btRemove);
+            }
+
+            if (String.Compare(Path.GetExtension(e.Node.Text),".jpg", true) == 0)
+                BtImgDisEnable(true, btMainImage);
+            else
+                BtImgDisEnable(false, btMainImage); 
         }
 
         private void btApply_Click(object sender, EventArgs e)
         {
-            /*if (CurImgPath != String.Empty)
-              imgC.Add(CurImgPath);
-            pbMainPhoto.Invalidate();*/
+            SetResolutionRatio();
             cl.AppendImage(pbMainPhoto);
         }
 
         private void btRemove_Click(object sender, EventArgs e)
         {
-
+            cl.RemoveImage(pbMainPhoto);
         }
 
+        private void SetResolutionRatio()
+        {
+            float result = 1;
 
-        
-        
+            float InitH = pbMainPhoto.Image.Height;
+            float InitW = pbMainPhoto.Image.Width;
+            float RectH = pbMainPhoto.Height;
+            float RectW = pbMainPhoto.Width;
+
+            if ((RectW / RectH) >= (InitW / InitH))
+                result = RectH/InitH;//высота помещается полностью
+            else
+                result =  RectW/InitW;
+
+            DraggingPicBox.ResRatio = result;
+        }
     }
 }

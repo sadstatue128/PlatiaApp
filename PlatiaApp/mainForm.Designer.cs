@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.mainFolderDlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.openBG = new System.Windows.Forms.OpenFileDialog();
             this.pnImg = new System.Windows.Forms.Panel();
             this.pbMainPhoto = new System.Windows.Forms.PictureBox();
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
@@ -43,6 +42,10 @@
             this.btMainImage = new System.Windows.Forms.Button();
             this.btApply = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.pnImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.Layout.SuspendLayout();
@@ -110,7 +113,7 @@
             this.LayoutBtns.RowCount = 3;
             this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.55779F));
             this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.44221F));
-            this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.LayoutBtns.Size = new System.Drawing.Size(283, 453);
             this.LayoutBtns.TabIndex = 13;
             // 
@@ -121,7 +124,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(277, 41);
+            this.panel1.Size = new System.Drawing.Size(277, 33);
             this.panel1.TabIndex = 0;
             // 
             // btClearAll
@@ -145,21 +148,25 @@
             // tvClothesTree
             // 
             this.tvClothesTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvClothesTree.Location = new System.Drawing.Point(3, 50);
+            this.tvClothesTree.Location = new System.Drawing.Point(3, 42);
             this.tvClothesTree.Name = "tvClothesTree";
-            this.tvClothesTree.Size = new System.Drawing.Size(277, 358);
+            this.tvClothesTree.Size = new System.Drawing.Size(277, 293);
             this.tvClothesTree.TabIndex = 9;
             this.tvClothesTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvClothesTree_NodeMouseClick);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btMainImage);
             this.panel2.Controls.Add(this.btApply);
             this.panel2.Controls.Add(this.btRemove);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 414);
+            this.panel2.Location = new System.Drawing.Point(3, 341);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(277, 36);
+            this.panel2.Size = new System.Drawing.Size(277, 109);
             this.panel2.TabIndex = 10;
             // 
             // btMainImage
@@ -192,6 +199,42 @@
             this.btRemove.UseVisualStyleBackColor = true;
             this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(103, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(103, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(22, 57);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(184, 57);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // mainForm
             // 
             this.AllowDrop = true;
@@ -215,7 +258,6 @@
         #endregion
 
         private System.Windows.Forms.FolderBrowserDialog mainFolderDlg;
-        private System.Windows.Forms.OpenFileDialog openBG;
         private System.Windows.Forms.Panel pnImg;
         private System.Windows.Forms.PictureBox pbMainPhoto;
         private System.Windows.Forms.TableLayoutPanel Layout;
@@ -229,6 +271,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btRemove;
         private System.Windows.Forms.Button btMainImage;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
