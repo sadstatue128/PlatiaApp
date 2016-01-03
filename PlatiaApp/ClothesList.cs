@@ -12,6 +12,7 @@ namespace PlatiaApp
         public string Name;
         public string PathPhoto;
         public ShmotCategory category;
+        public DraggingPicBox picBox = null;
         public Shmot(string FilePath, ShmotCategory sc)
         {
             PathPhoto = FilePath;
@@ -42,6 +43,7 @@ namespace PlatiaApp
     class ClothesList
     {
         ShmotCategoryList CatList = new ShmotCategoryList();
+        
 
         public void ReadFromFolder(string folderPath)
         {
@@ -81,6 +83,20 @@ namespace PlatiaApp
                 result = sh.PathPhoto;
             }
             return result;
+        }
+
+        Shmot CurShmot;
+        internal void SetCurShmot(object p)
+        {
+            if (p is Shmot)
+            {
+                CurShmot = p as Shmot;
+            }
+        }
+
+        internal void AppendImage(Control control)
+        {
+            CurShmot.picBox = new DraggingPicBox(CurShmot.PathPhoto, control);
         }
     }
 }

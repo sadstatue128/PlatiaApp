@@ -10,13 +10,13 @@ using System.IO;
 
 namespace PlatiaApp
 {
-    public partial class Form1 : Form
+    public partial class mainForm : Form
     {
         ClothesList cl = new ClothesList();
         ImgConcat imgC = new ImgConcat();
         String CurImgPath = String.Empty;
 
-        public Form1()
+        public mainForm()
         {
             InitializeComponent();
             imgC.ImgChanged += new EventHandler(ImgChanged);
@@ -58,21 +58,20 @@ namespace PlatiaApp
 
         private void tvClothesTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            cl.SetCurShmot(e.Node.Tag);
             CurImgPath = cl.GetImagePath(e.Node.Tag);
-            if (Path.GetExtension(CurImgPath) == ".png")
+            if (Path.GetExtension(e.Node.Text) == ".png")
                 BtImgDisEnable(true);                
             else
-                BtImgDisEnable(false);
-           
+                BtImgDisEnable(false);          
         }
 
         private void btApply_Click(object sender, EventArgs e)
         {
-            if (CurImgPath != String.Empty)
-            {
-                imgC.Add(CurImgPath);
-            }
-            pbMainPhoto.Invalidate();
+            /*if (CurImgPath != String.Empty)
+              imgC.Add(CurImgPath);
+            pbMainPhoto.Invalidate();*/
+            cl.AppendImage(pbMainPhoto);
         }
 
         private void btRemove_Click(object sender, EventArgs e)
@@ -80,48 +79,8 @@ namespace PlatiaApp
 
         }
 
-        private void Form1_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
 
-        private void Form1_DragDrop(object sender, DragEventArgs e)
-        {
-            int x = this.PointToClient(new Point(e.X, e.Y)).X;
-
-            int y = this.PointToClient(new Point(e.X, e.Y)).Y;
-
-            if (x >= pictureBox1.Location.X && x <= pictureBox1.Location.X + pictureBox1.Width && y >= pictureBox1.Location.Y && y <= pictureBox1.Location.Y + pictureBox1.Height)
-            {
-
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                pictureBox1.Image = Image.FromFile(files[0]);
-
-            }
-        }
-
-        private void Layout_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
-
-        private void Layout_DragDrop(object sender, DragEventArgs e)
-        {
-            int x = this.PointToClient(new Point(e.X, e.Y)).X;
-
-            int y = this.PointToClient(new Point(e.X, e.Y)).Y;
-
-            if (x >= pictureBox1.Location.X && x <= pictureBox1.Location.X + pictureBox1.Width && y >= pictureBox1.Location.Y && y <= pictureBox1.Location.Y + pictureBox1.Height)
-            {
-
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                pictureBox1.Image = Image.FromFile(files[0]);
-
-            }
-        }
-
+        
         
     }
 }
