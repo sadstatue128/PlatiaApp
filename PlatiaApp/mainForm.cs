@@ -14,6 +14,7 @@ namespace PlatiaApp
     {
         ClothesList cl = new ClothesList();
         String CurImgPath = String.Empty;
+        ImgConcat imgC = new ImgConcat();
 
         public mainForm()
         {
@@ -24,6 +25,28 @@ namespace PlatiaApp
             BtImgDisEnable(false, btApply);
             BtImgDisEnable(false, btRemove);
             BtImgDisEnable(false, btMainImage);
+            imgC.ImgChanged += new EventHandler(ImgChanged);
+            SetMoveBtns();
+
+        }
+
+        private void SetMoveBtns()
+        {
+            btUp.Tag = Direction.up;
+            btDown.Tag = Direction.down;
+            btLeft.Tag = Direction.left;
+            btRight.Tag = Direction.right;
+
+            btUp.Click += btnMoveImg_Click;
+            btDown.Click += btnMoveImg_Click;
+            btLeft.Click += btnMoveImg_Click;
+            btRight.Click += btnMoveImg_Click;
+        }
+
+        public void ImgChanged(object sender, EventArgs e)
+        {
+            pbMainPhoto.Image = imgC.MainImage;
+            pbMainPhoto.Invalidate();
         }
        
         private void btOpenFolder_Click(object sender, EventArgs e)
@@ -39,8 +62,8 @@ namespace PlatiaApp
         Image CurBgImage = null;
         private void btMainImage_Click(object sender, EventArgs e)
         {
-            CurBgImage = Bitmap.FromFile(CurImgPath);
-            pbMainPhoto.Image = CurBgImage;
+            imgC.MainImage = Bitmap.FromFile(CurImgPath);
+            pbMainPhoto.Invalidate();
         }
 
         void BtImgDisEnable(Boolean En, Control ctrl)
@@ -71,13 +94,20 @@ namespace PlatiaApp
 
         private void btApply_Click(object sender, EventArgs e)
         {
-            SetResolutionRatio();
-            cl.AppendImage(pbMainPhoto);
+            if (CurImgPath != String.Empty)
+                imgC.Add(CurImgPath);
+            pbMainPhoto.Invalidate();
         }
 
         private void btRemove_Click(object sender, EventArgs e)
         {
-            cl.RemoveImage(pbMainPhoto);
+            Direction dir = (Direction)Enum.Parse(typeof(Direction), (sender as Button).Tag.ToString());
+            imgC.Move(dir);
+        }
+
+        private void btnMoveImg_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void SetResolutionRatio()

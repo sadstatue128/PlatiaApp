@@ -6,9 +6,19 @@ using System.Drawing;
 
 namespace PlatiaApp
 {
+    enum Direction
+    {
+        up,
+        down,
+        left, 
+        right
+    }
+
     class ImgConcat
     {
         Image CurImg;
+        Image AppendingImage;
+        Point AppImgPoint;
         Image InitialImage;
         Image PreImage;
         public EventHandler ImgChanged;
@@ -36,17 +46,32 @@ namespace PlatiaApp
 
         internal void Add(string AddingImgPath)
         {
-            PreImage = CurImg;            
-            Image AddingImage = Bitmap.FromFile(AddingImgPath);
+            PreImage = CurImg;
+            AppendingImage = Bitmap.FromFile(AddingImgPath);
             Graphics gr = Graphics.FromImage(CurImg);
             using (gr)
             {
-                gr.DrawImage(AddingImage, 0, 0);
+                gr.DrawImage(AppendingImage, 0, 0);
             }
         }
 
         internal void Remove(string CurImgPath)
         {
+            
+        }
+
+        internal void Move(Direction direction)
+        {
+            CurImg = PreImage;
+            Graphics gr = Graphics.FromImage(CurImg);
+            if (direction == Direction.up)
+            {
+                Point pt = 
+            }
+            using (gr)
+            {                
+                gr.DrawImage(AppendingImage, 0, 0);
+            }
             
         }
     }

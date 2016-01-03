@@ -30,7 +30,6 @@
         {
             this.mainFolderDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.pnImg = new System.Windows.Forms.Panel();
-            this.pbMainPhoto = new System.Windows.Forms.PictureBox();
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.pnManage = new System.Windows.Forms.Panel();
             this.LayoutBtns = new System.Windows.Forms.TableLayoutPanel();
@@ -42,17 +41,18 @@
             this.btMainImage = new System.Windows.Forms.Button();
             this.btApply = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btUp = new System.Windows.Forms.Button();
+            this.btDown = new System.Windows.Forms.Button();
+            this.btLeft = new System.Windows.Forms.Button();
+            this.btRight = new System.Windows.Forms.Button();
+            this.pbMainPhoto = new System.Windows.Forms.PictureBox();
             this.pnImg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.Layout.SuspendLayout();
             this.pnManage.SuspendLayout();
             this.LayoutBtns.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // pnImg
@@ -63,17 +63,6 @@
             this.pnImg.Name = "pnImg";
             this.pnImg.Size = new System.Drawing.Size(506, 453);
             this.pnImg.TabIndex = 7;
-            // 
-            // pbMainPhoto
-            // 
-            this.pbMainPhoto.BackColor = System.Drawing.Color.Transparent;
-            this.pbMainPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMainPhoto.Location = new System.Drawing.Point(0, 0);
-            this.pbMainPhoto.Name = "pbMainPhoto";
-            this.pbMainPhoto.Size = new System.Drawing.Size(506, 453);
-            this.pbMainPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMainPhoto.TabIndex = 1;
-            this.pbMainPhoto.TabStop = false;
             // 
             // Layout
             // 
@@ -156,10 +145,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btRight);
+            this.panel2.Controls.Add(this.btLeft);
+            this.panel2.Controls.Add(this.btDown);
+            this.panel2.Controls.Add(this.btUp);
             this.panel2.Controls.Add(this.btMainImage);
             this.panel2.Controls.Add(this.btApply);
             this.panel2.Controls.Add(this.btRemove);
@@ -199,41 +188,52 @@
             this.btRemove.UseVisualStyleBackColor = true;
             this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
-            // button1
+            // btUp
             // 
-            this.button1.Location = new System.Drawing.Point(103, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btUp.Location = new System.Drawing.Point(103, 36);
+            this.btUp.Name = "btUp";
+            this.btUp.Size = new System.Drawing.Size(75, 23);
+            this.btUp.TabIndex = 14;
+            this.btUp.Text = "Up";
+            this.btUp.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btDown
             // 
-            this.button2.Location = new System.Drawing.Point(103, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btDown.Location = new System.Drawing.Point(103, 80);
+            this.btDown.Name = "btDown";
+            this.btDown.Size = new System.Drawing.Size(75, 23);
+            this.btDown.TabIndex = 15;
+            this.btDown.Text = "Down";
+            this.btDown.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btLeft
             // 
-            this.button3.Location = new System.Drawing.Point(22, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btLeft.Location = new System.Drawing.Point(22, 57);
+            this.btLeft.Name = "btLeft";
+            this.btLeft.Size = new System.Drawing.Size(75, 23);
+            this.btLeft.TabIndex = 16;
+            this.btLeft.Text = "Left";
+            this.btLeft.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btRight
             // 
-            this.button4.Location = new System.Drawing.Point(184, 57);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btRight.Location = new System.Drawing.Point(184, 57);
+            this.btRight.Name = "btRight";
+            this.btRight.Size = new System.Drawing.Size(75, 23);
+            this.btRight.TabIndex = 17;
+            this.btRight.Text = "Right";
+            this.btRight.UseVisualStyleBackColor = true;
+            // 
+            // pbMainPhoto
+            // 
+            this.pbMainPhoto.BackColor = System.Drawing.Color.Transparent;
+            this.pbMainPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMainPhoto.Location = new System.Drawing.Point(0, 0);
+            this.pbMainPhoto.Name = "pbMainPhoto";
+            this.pbMainPhoto.Size = new System.Drawing.Size(506, 453);
+            this.pbMainPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMainPhoto.TabIndex = 1;
+            this.pbMainPhoto.TabStop = false;
             // 
             // mainForm
             // 
@@ -245,12 +245,12 @@
             this.Name = "mainForm";
             this.Text = "Form1";
             this.pnImg.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.Layout.ResumeLayout(false);
             this.pnManage.ResumeLayout(false);
             this.LayoutBtns.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,10 +271,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btRemove;
         private System.Windows.Forms.Button btMainImage;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btRight;
+        private System.Windows.Forms.Button btLeft;
+        private System.Windows.Forms.Button btDown;
+        private System.Windows.Forms.Button btUp;
     }
 }
 
