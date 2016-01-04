@@ -114,5 +114,31 @@ namespace PlatiaApp
         {
             imgC.ClearAll();
         }
+
+        private void mainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                switch (e.KeyData)
+                {
+                    case (Keys.Down):
+                        btDown.PerformClick();
+                        break;
+
+                    case Keys.Up:
+                        btUp.PerformClick();
+                        break;
+
+                    case Keys.Left:
+                        btLeft.PerformClick();
+                        break;
+
+                    case Keys.Right:
+                        btRight.PerformClick();
+                        break;
+                }
+            }
+        }
+
     }
 }

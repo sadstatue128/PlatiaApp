@@ -242,6 +242,7 @@
             this.Controls.Add(this.Layout);
             this.Name = "mainForm";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mainForm_KeyDown);
             this.pnImg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.Layout.ResumeLayout(false);
