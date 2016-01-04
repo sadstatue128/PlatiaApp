@@ -30,6 +30,7 @@
         {
             this.mainFolderDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.pnImg = new System.Windows.Forms.Panel();
+            this.pbMainPhoto = new System.Windows.Forms.PictureBox();
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.pnManage = new System.Windows.Forms.Panel();
             this.LayoutBtns = new System.Windows.Forms.TableLayoutPanel();
@@ -38,21 +39,20 @@
             this.btOpenFolder = new System.Windows.Forms.Button();
             this.tvClothesTree = new System.Windows.Forms.TreeView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btRight = new System.Windows.Forms.Button();
+            this.btLeft = new System.Windows.Forms.Button();
+            this.btDown = new System.Windows.Forms.Button();
+            this.btUp = new System.Windows.Forms.Button();
             this.btMainImage = new System.Windows.Forms.Button();
             this.btApply = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
-            this.btUp = new System.Windows.Forms.Button();
-            this.btDown = new System.Windows.Forms.Button();
-            this.btLeft = new System.Windows.Forms.Button();
-            this.btRight = new System.Windows.Forms.Button();
-            this.pbMainPhoto = new System.Windows.Forms.PictureBox();
             this.pnImg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.Layout.SuspendLayout();
             this.pnManage.SuspendLayout();
             this.LayoutBtns.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // pnImg
@@ -63,6 +63,17 @@
             this.pnImg.Name = "pnImg";
             this.pnImg.Size = new System.Drawing.Size(506, 453);
             this.pnImg.TabIndex = 7;
+            // 
+            // pbMainPhoto
+            // 
+            this.pbMainPhoto.BackColor = System.Drawing.Color.Transparent;
+            this.pbMainPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMainPhoto.Location = new System.Drawing.Point(0, 0);
+            this.pbMainPhoto.Name = "pbMainPhoto";
+            this.pbMainPhoto.Size = new System.Drawing.Size(506, 453);
+            this.pbMainPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMainPhoto.TabIndex = 1;
+            this.pbMainPhoto.TabStop = false;
             // 
             // Layout
             // 
@@ -100,8 +111,8 @@
             this.LayoutBtns.Location = new System.Drawing.Point(0, 0);
             this.LayoutBtns.Name = "LayoutBtns";
             this.LayoutBtns.RowCount = 3;
-            this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.55779F));
-            this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.44221F));
+            this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.20118F));
+            this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.79881F));
             this.LayoutBtns.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.LayoutBtns.Size = new System.Drawing.Size(283, 453);
             this.LayoutBtns.TabIndex = 13;
@@ -113,7 +124,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(277, 33);
+            this.panel1.Size = new System.Drawing.Size(277, 42);
             this.panel1.TabIndex = 0;
             // 
             // btClearAll
@@ -124,6 +135,7 @@
             this.btClearAll.TabIndex = 14;
             this.btClearAll.Text = "Снять все";
             this.btClearAll.UseVisualStyleBackColor = true;
+            this.btClearAll.Click += new System.EventHandler(this.btClearAll_Click);
             // 
             // btOpenFolder
             // 
@@ -137,9 +149,9 @@
             // tvClothesTree
             // 
             this.tvClothesTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvClothesTree.Location = new System.Drawing.Point(3, 42);
+            this.tvClothesTree.Location = new System.Drawing.Point(3, 51);
             this.tvClothesTree.Name = "tvClothesTree";
-            this.tvClothesTree.Size = new System.Drawing.Size(277, 293);
+            this.tvClothesTree.Size = new System.Drawing.Size(277, 284);
             this.tvClothesTree.TabIndex = 9;
             this.tvClothesTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvClothesTree_NodeMouseClick);
             // 
@@ -157,6 +169,42 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(277, 109);
             this.panel2.TabIndex = 10;
+            // 
+            // btRight
+            // 
+            this.btRight.Location = new System.Drawing.Point(184, 57);
+            this.btRight.Name = "btRight";
+            this.btRight.Size = new System.Drawing.Size(75, 23);
+            this.btRight.TabIndex = 17;
+            this.btRight.Text = "Right";
+            this.btRight.UseVisualStyleBackColor = true;
+            // 
+            // btLeft
+            // 
+            this.btLeft.Location = new System.Drawing.Point(22, 57);
+            this.btLeft.Name = "btLeft";
+            this.btLeft.Size = new System.Drawing.Size(75, 23);
+            this.btLeft.TabIndex = 16;
+            this.btLeft.Text = "Left";
+            this.btLeft.UseVisualStyleBackColor = true;
+            // 
+            // btDown
+            // 
+            this.btDown.Location = new System.Drawing.Point(103, 80);
+            this.btDown.Name = "btDown";
+            this.btDown.Size = new System.Drawing.Size(75, 23);
+            this.btDown.TabIndex = 15;
+            this.btDown.Text = "Down";
+            this.btDown.UseVisualStyleBackColor = true;
+            // 
+            // btUp
+            // 
+            this.btUp.Location = new System.Drawing.Point(103, 36);
+            this.btUp.Name = "btUp";
+            this.btUp.Size = new System.Drawing.Size(75, 23);
+            this.btUp.TabIndex = 14;
+            this.btUp.Text = "Up";
+            this.btUp.UseVisualStyleBackColor = true;
             // 
             // btMainImage
             // 
@@ -188,53 +236,6 @@
             this.btRemove.UseVisualStyleBackColor = true;
             this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
-            // btUp
-            // 
-            this.btUp.Location = new System.Drawing.Point(103, 36);
-            this.btUp.Name = "btUp";
-            this.btUp.Size = new System.Drawing.Size(75, 23);
-            this.btUp.TabIndex = 14;
-            this.btUp.Text = "Up";
-            this.btUp.UseVisualStyleBackColor = true;
-            // 
-            // btDown
-            // 
-            this.btDown.Location = new System.Drawing.Point(103, 80);
-            this.btDown.Name = "btDown";
-            this.btDown.Size = new System.Drawing.Size(75, 23);
-            this.btDown.TabIndex = 15;
-            this.btDown.Text = "Down";
-            this.btDown.UseVisualStyleBackColor = true;
-            // 
-            // btLeft
-            // 
-            this.btLeft.Location = new System.Drawing.Point(22, 57);
-            this.btLeft.Name = "btLeft";
-            this.btLeft.Size = new System.Drawing.Size(75, 23);
-            this.btLeft.TabIndex = 16;
-            this.btLeft.Text = "Left";
-            this.btLeft.UseVisualStyleBackColor = true;
-            // 
-            // btRight
-            // 
-            this.btRight.Location = new System.Drawing.Point(184, 57);
-            this.btRight.Name = "btRight";
-            this.btRight.Size = new System.Drawing.Size(75, 23);
-            this.btRight.TabIndex = 17;
-            this.btRight.Text = "Right";
-            this.btRight.UseVisualStyleBackColor = true;
-            // 
-            // pbMainPhoto
-            // 
-            this.pbMainPhoto.BackColor = System.Drawing.Color.Transparent;
-            this.pbMainPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMainPhoto.Location = new System.Drawing.Point(0, 0);
-            this.pbMainPhoto.Name = "pbMainPhoto";
-            this.pbMainPhoto.Size = new System.Drawing.Size(506, 453);
-            this.pbMainPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMainPhoto.TabIndex = 1;
-            this.pbMainPhoto.TabStop = false;
-            // 
             // mainForm
             // 
             this.AllowDrop = true;
@@ -245,12 +246,12 @@
             this.Name = "mainForm";
             this.Text = "Form1";
             this.pnImg.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.Layout.ResumeLayout(false);
             this.pnManage.ResumeLayout(false);
             this.LayoutBtns.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -20,7 +20,9 @@ namespace PlatiaApp
         {
             InitializeComponent();
             btOpenFolder.Click += btOpenFolder_Click;
-            //btClearAll.Click += 
+            btApply.Click += btApply_Click;
+            btRemove.Click += btRemove_Click;
+            btClearAll.Click += btClearAll_Click;
             btMainImage.Click += btMainImage_Click;
             BtImgDisEnable(false, btApply);
             BtImgDisEnable(false, btRemove);
@@ -101,30 +103,20 @@ namespace PlatiaApp
 
         private void btRemove_Click(object sender, EventArgs e)
         {
-            Direction dir = (Direction)Enum.Parse(typeof(Direction), (sender as Button).Tag.ToString());
-            imgC.Move(dir);
+            imgC.Remove(CurImgPath);
         }
 
         private void btnMoveImg_Click(object sender, EventArgs e)
         {
-            
+            Direction dir = (Direction)Enum.Parse(typeof(Direction), (sender as Button).Tag.ToString());
+            imgC.Move(dir);
         }
 
-        private void SetResolutionRatio()
+        
+
+        private void btClearAll_Click(object sender, EventArgs e)
         {
-            float result = 1;
 
-            float InitH = pbMainPhoto.Image.Height;
-            float InitW = pbMainPhoto.Image.Width;
-            float RectH = pbMainPhoto.Height;
-            float RectW = pbMainPhoto.Width;
-
-            if ((RectW / RectH) >= (InitW / InitH))
-                result = RectH/InitH;//высота помещается полностью
-            else
-                result =  RectW/InitW;
-
-            DraggingPicBox.ResRatio = result;
         }
     }
 }

@@ -16,11 +16,7 @@ namespace PlatiaApp
 
     class ImgConcat
     {
-        Image CurImg;
-        Image AppendingImage;
-        Point AppImgPoint;
-        Image InitialImage;
-        Image PreImage;
+        
         public EventHandler ImgChanged;
 
         public Image MainImage
@@ -28,7 +24,6 @@ namespace PlatiaApp
             set
             {
                 CurImg = value;
-                InitialImage = value;
                 PreImage = value;
                 OnImageChanged();
             }
@@ -44,35 +39,58 @@ namespace PlatiaApp
             }
         }
 
+        Image CurImg; //текущее изобр с которым работаем
+        Image AppendingImage; //добавляемое изображение
+        Image PreImage; //изображение до добавления AppendingImage
+        Image InitialImage; //фон
+        Point AppImgPoint;
+        
+
         internal void Add(string AddingImgPath)
         {
-            PreImage = CurImg;
+            PreImage = CurImg.Clone() as Image;
             AppendingImage = Bitmap.FromFile(AddingImgPath);
-            Graphics gr = Graphics.FromImage(CurImg);
-            using (gr)
-            {
-                gr.DrawImage(AppendingImage, 0, 0);
-            }
+            AppImgPoint = new Point(0, 0);
+            DrawAppendingImage();
         }
 
         internal void Remove(string CurImgPath)
         {
-            
+            CurImg = PreImage.Clone() as Image;
         }
 
         internal void Move(Direction direction)
         {
-            CurImg = PreImage;
-            Graphics gr = Graphics.FromImage(CurImg);
-            if (direction == Direction.up)
+            CurImg = PreImage.Clone() as Image;
+            switch (direction)
             {
-                Point pt = 
+                case Direction.up:
+                    AppImgPoint.Y = AppImgPoint.Y - 10;
+                    break;
+
+                case Direction.down:
+                    AppImgPoint.Y = AppImgPoint.Y + 10;
+                    break;
+
+                case Direction.left:
+                    AppImgPoint.X = AppImgPoint.X - 10;
+                    break;
+
+                case Direction.right:
+                    AppImgPoint.X = AppImgPoint.X + 10;
+                    break;                                     
             }
+            DrawAppendingImage();            
+        }
+
+        private void DrawAppendingImage()
+        {
+            Graphics gr = Graphics.FromImage(CurImg);
             using (gr)
-            {                
-                gr.DrawImage(AppendingImage, 0, 0);
+            {
+                gr.DrawImage(AppendingImage, AppImgPoint);
             }
-            
+            OnImageChanged();
         }
     }
 }

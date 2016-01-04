@@ -36,5 +36,22 @@ namespace PlatiaApp
             owner.Controls.Remove(this);
             Dispose();
         }
+
+        private void SetResolutionRatio()
+        {
+            float result = 1;
+
+            float InitH = (owner as PictureBox).Image.Height;
+            float InitW = (owner as PictureBox).Image.Width;
+            float RectH = (owner as PictureBox).Height;
+            float RectW = (owner as PictureBox).Width;
+
+            if ((RectW / RectH) >= (InitW / InitH))
+                result = RectH / InitH;//высота помещается полностью
+            else
+                result = RectW / InitW;
+
+            ResRatio = result;
+        }
     }
 }

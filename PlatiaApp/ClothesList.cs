@@ -12,7 +12,6 @@ namespace PlatiaApp
         public string Name;
         public string PathPhoto;
         public ShmotCategory category;
-        public DraggingPicBox picBox = null;
         public Shmot(string FilePath, ShmotCategory sc)
         {
             PathPhoto = FilePath;
@@ -20,14 +19,6 @@ namespace PlatiaApp
             category = sc;
         }
 
-        public void DeletePicBox()
-        {
-            if (picBox != null)
-            {
-                picBox.Free();
-                picBox = null;
-            }
-        }
 
     }
 
@@ -102,29 +93,6 @@ namespace PlatiaApp
                 CurShmot = p as Shmot;
             }
         }
-
-        internal void AppendImage(Control control)
-        {
-            CurShmot.picBox = new DraggingPicBox(CurShmot.PathPhoto, control);
-        }
-
-        internal void RemoveImage(PictureBox pbMainPhoto)
-        {
-            if (CurShmot.picBox != null)
-            {
-                CurShmot.DeletePicBox();
-            }
-        }
-
-        public void ClearAll()
-        {
-            foreach (ShmotCategory sc in CatList)
-            {
-                foreach (Shmot sh in sc.list)
-                {
-                    sh.DeletePicBox();
-                }
-            }
-        }
+        
     }
 }

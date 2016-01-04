@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClothesList.cs" />
-    <Compile Include="Dragging.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,9 +54,6 @@
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ImgConcat.cs" />
-    <Compile Include="PicBoxConcat.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="mainForm.resx">
