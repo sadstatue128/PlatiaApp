@@ -61,7 +61,6 @@ namespace PlatiaApp
             }
         }
 
-        Image CurBgImage = null;
         private void btMainImage_Click(object sender, EventArgs e)
         {
             imgC.MainImage = Bitmap.FromFile(CurImgPath);
@@ -98,7 +97,6 @@ namespace PlatiaApp
         {
             if (CurImgPath != String.Empty)
                 imgC.Add(CurImgPath);
-            pbMainPhoto.Invalidate();
         }
 
         private void btRemove_Click(object sender, EventArgs e)
@@ -111,12 +109,10 @@ namespace PlatiaApp
             Direction dir = (Direction)Enum.Parse(typeof(Direction), (sender as Button).Tag.ToString());
             imgC.Move(dir);
         }
-
-        
-
+       
         private void btClearAll_Click(object sender, EventArgs e)
         {
-
+            imgC.ClearAll();
         }
     }
 }

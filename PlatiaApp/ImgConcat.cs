@@ -23,8 +23,9 @@ namespace PlatiaApp
         {
             set
             {
-                CurImg = value;
-                PreImage = value;
+                CurImg = value.Clone() as Image;
+                PreImage = value.Clone() as Image;
+                InitialImage = value.Clone() as Image; 
                 OnImageChanged();
             }
             get
@@ -57,6 +58,7 @@ namespace PlatiaApp
         internal void Remove(string CurImgPath)
         {
             CurImg = PreImage.Clone() as Image;
+            OnImageChanged();
         }
 
         internal void Move(Direction direction)
@@ -90,6 +92,12 @@ namespace PlatiaApp
             {
                 gr.DrawImage(AppendingImage, AppImgPoint);
             }
+            OnImageChanged();
+        }
+
+        internal void ClearAll()
+        {
+            CurImg = InitialImage.Clone() as Image;
             OnImageChanged();
         }
     }

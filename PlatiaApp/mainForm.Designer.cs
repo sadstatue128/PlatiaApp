@@ -214,7 +214,6 @@
             this.btMainImage.TabIndex = 13;
             this.btMainImage.Text = "Фон";
             this.btMainImage.UseVisualStyleBackColor = true;
-            this.btMainImage.Click += new System.EventHandler(this.btMainImage_Click);
             // 
             // btApply
             // 
@@ -224,7 +223,6 @@
             this.btApply.TabIndex = 11;
             this.btApply.Text = "Надеть";
             this.btApply.UseVisualStyleBackColor = true;
-            this.btApply.Click += new System.EventHandler(this.btApply_Click);
             // 
             // btRemove
             // 
@@ -234,7 +232,6 @@
             this.btRemove.TabIndex = 12;
             this.btRemove.Text = "Снять";
             this.btRemove.UseVisualStyleBackColor = true;
-            this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
             // mainForm
             // 
